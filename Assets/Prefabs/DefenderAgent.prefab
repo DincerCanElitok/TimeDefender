@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8885431086818593466}
   - component: {fileID: 8885431086818593465}
   - component: {fileID: 8885431086818593464}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DefenderAgent
   m_TagString: Agent
   m_Icon: {fileID: 0}

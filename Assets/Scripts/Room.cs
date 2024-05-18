@@ -13,16 +13,16 @@ public class Room : MonoBehaviour
     {
         if (enemyList.Count > 0)
         {
-            informAgentSetEnemy.Invoke(enemyList[0]);
+            informAgentSetEnemy?.Invoke(enemyList[0]);
         }
     }
     public void InformAgentEnemyLeaveRoom()
     {
-        informAgentLeaveEnemy.Invoke();
+        informAgentLeaveEnemy?.Invoke();
         //for multiple enemies in same room
         if (enemyList.Count > 0)
         {
-            informAgentSetEnemy.Invoke(enemyList[0]);
+            informAgentSetEnemy?.Invoke(enemyList[0]);
         }
     }
 }
