@@ -14,7 +14,7 @@ public class DefenderAgent : Agent
     //for training i will choose myself
     [SerializeField] private GameObject enemy;
     private Vector3 startPos;
-    [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
+    //[SerializeField] private SpriteRenderer backgroundSpriteRenderer;
     
     private void Start()
     {
@@ -73,7 +73,7 @@ public class DefenderAgent : Agent
         {
             AddReward(10f);
             //for visualize the result
-            backgroundSpriteRenderer.color = Color.gray;
+            //backgroundSpriteRenderer.color = Color.gray;
             EndEpisode();
         }
         
@@ -84,7 +84,7 @@ public class DefenderAgent : Agent
         if (collision.gameObject.CompareTag("Enemy"))
         {
             AddReward(10f);
-            backgroundSpriteRenderer.color = Color.gray;
+            //backgroundSpriteRenderer.color = Color.gray;
             EndEpisode();
         }
         
@@ -94,7 +94,7 @@ public class DefenderAgent : Agent
         if (collision.CompareTag("AgentWall"))
         {
             AddReward(-2f);
-            backgroundSpriteRenderer.color = Color.blue;
+            //backgroundSpriteRenderer.color = Color.blue;
             EndEpisode();
         }
     }
@@ -102,7 +102,7 @@ public class DefenderAgent : Agent
     {
         if (collision.CompareTag("AgentWall"))
         {
-            backgroundSpriteRenderer.color = Color.blue;
+            //backgroundSpriteRenderer.color = Color.blue;
             AddReward(-0.1f);
         }
     }
