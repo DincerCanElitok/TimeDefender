@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - AgentWall
   - Room
+  - Death
+  - Agent
   layers:
   - Default
   - TransparentFX

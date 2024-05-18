@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8885431086818593464}
   m_Layer: 0
   m_Name: DefenderAgent
-  m_TagString: Untagged
+  m_TagString: Agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   speed: 3
-  room: {fileID: 0}
   enemy: {fileID: 0}
+  backgroundSpriteRenderer: {fileID: 0}
 --- !u!114 &8885431086818593464
 MonoBehaviour:
   m_ObjectHideFlags: 0

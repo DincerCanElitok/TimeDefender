@@ -437,6 +437,10 @@ PrefabInstance:
       propertyPath: room
       value: 
       objectReference: {fileID: 7526749136954860100}
+    - target: {fileID: 8885431086818593465, guid: 92593f60e8bec1a4f9d95fb2ceecc817, type: 3}
+      propertyPath: backgroundSpriteRenderer
+      value: 
+      objectReference: {fileID: 7526749138097723057}
     - target: {fileID: 8885431086818593470, guid: 92593f60e8bec1a4f9d95fb2ceecc817, type: 3}
       propertyPath: m_Name
       value: DefenderAgent

@@ -9,15 +9,24 @@
                 "auxillary_file_paths": [
                     "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-444408.pt"
                 ]
+            },
+            {
+                "steps": 472330,
+                "file_path": "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-472330.onnx",
+                "reward": -3.239322033898305,
+                "creation_time": 1716028543.0528712,
+                "auxillary_file_paths": [
+                    "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-472330.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 444408,
+            "steps": 472330,
             "file_path": "results\\Agent2\\DefenderAgentBehavior.onnx",
-            "reward": 10.0,
-            "creation_time": 1716015933.5521178,
+            "reward": -3.239322033898305,
+            "creation_time": 1716028543.0528712,
             "auxillary_file_paths": [
-                "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-444408.pt"
+                "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-472330.pt"
             ]
         }
     },

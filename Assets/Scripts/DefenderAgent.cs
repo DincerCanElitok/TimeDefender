@@ -9,12 +9,12 @@ using Unity.MLAgents.Sensors;
 public class DefenderAgent : Agent
 {
     [SerializeField] private float speed;
-    public Room room;
+    private Room room;
     //we can take enemy info from room
     //for training i will choose myself
     [SerializeField] private GameObject enemy;
     private Vector3 startPos;
-    //[SerializeField] private SpriteRenderer backgroundSpriteRenderer;
+    [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
     
     private void Start()
     {
@@ -30,6 +30,7 @@ public class DefenderAgent : Agent
     private void LeaveEnemy()
     {
         enemy = null;
+        SetReward(-20f);
     }
     private void SetRoom()
     {
