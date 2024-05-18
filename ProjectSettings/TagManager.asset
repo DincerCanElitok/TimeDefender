@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - AgentWall
+  - Room
   layers:
   - Default
   - TransparentFX
