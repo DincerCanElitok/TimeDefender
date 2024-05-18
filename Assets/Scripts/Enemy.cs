@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float health;
-    
+    public Slider healthBarSlider;
+
+    private void Start()
+    {
+        healthBarSlider.value = health;
+        healthBarSlider.maxValue = health;
+
+    }
+
     private void Update()
     {
         //testing
@@ -39,12 +48,13 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Agent"))
         {
-            TakeDamage(10f);
+            TakeDamage(10f);            
         }
     }
     private void TakeDamage(float amount)
     {
         health -= amount;
+        healthBarSlider.value = health;
         //for testing, can be pooled
         if (health < 0)
             Destroy(gameObject);
