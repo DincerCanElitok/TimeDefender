@@ -1,0 +1,29 @@
+{
+    "DefenderAgentBehavior": {
+        "checkpoints": [
+            {
+                "steps": 444408,
+                "file_path": "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-444408.onnx",
+                "reward": 10.0,
+                "creation_time": 1716015933.5521178,
+                "auxillary_file_paths": [
+                    "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-444408.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 444408,
+            "file_path": "results\\Agent2\\DefenderAgentBehavior.onnx",
+            "reward": 10.0,
+            "creation_time": 1716015933.5521178,
+            "auxillary_file_paths": [
+                "results\\Agent2\\DefenderAgentBehavior\\DefenderAgentBehavior-444408.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.3.0+cpu"
+    }
+}
