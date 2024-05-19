@@ -19,7 +19,7 @@ public class DefenderAgent : Agent
     private Vector3 currentPos;
     private Vector3 movement;
     private bool isFlipped = false;
-    private void Start()
+    private void Awake()
     {
         startPos = transform.localPosition;
         room = GetComponentInParent<Room>();

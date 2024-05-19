@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -42,6 +43,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject downgradeImage3;
     [SerializeField] private Button downgradeButton3;
 
+    [SerializeField] private GameObject defender2;
+    [SerializeField] private GameObject defender3;
+    [SerializeField] private TextMeshProUGUI infoText1;
+    [SerializeField] private TextMeshProUGUI infoText2;
     private void Start()
     {
         currentTime = timeForNextUpdate;
@@ -51,29 +56,23 @@ public class GameController : MonoBehaviour
         downgradeButton2.onClick.AddListener(() => ApplyDowngrade(1));
         downgradeButton3.onClick.AddListener(() => ApplyDowngrade(2));
 
-        
+        infoText1.DOFade(1, 5).OnComplete(() =>
+        {
+            infoText1.DOFade(0, 5).OnComplete(() => { infoText1.gameObject.SetActive(false); });
+        });
     }
     private void Update()
     {
-        //test
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeTime();
-             
-        }
             
-
         currentTime -= Time.deltaTime;
         timeText.text = currentTime.ToString("F1");
 
-        //show upgrade panel
         if (currentTime < 0.1f && !isTimeStopped)
         {
             ChangeTime();
             ShowUpgradePanel();
         }
 
-        //show gameover panel
         if(currentTime > timeForGameOver)
         {
             ChangeTime();
@@ -101,6 +100,41 @@ public class GameController : MonoBehaviour
         roundText.text = "Round :  " + roundCount.ToString();
         ShowRandomDowngrades();
         upgradePanel.SetActive(true);
+
+        //for push the player to use the drag mechanic
+        if (roundCount == 1)
+        {
+            defender2.SetActive(true);
+            infoText2.DOFade(1, 5).OnComplete(() =>
+            {
+                infoText2.DOFade(0, 5).OnComplete(() => { infoText2.gameObject.SetActive(false); });
+            });
+        }
+        else if (roundCount == 2)
+        {
+            defender3.SetActive(true);
+
+            //reducing the average spawn time
+            spawner1.spawnTimeMax = 7f;
+            spawner1.spawnTimeMin = 3f;
+
+            spawner2.spawnTimeMax = 7f;
+            spawner2.spawnTimeMin = 3f;
+
+            spawner3.spawnTimeMax = 7f;
+            spawner3.spawnTimeMin = 3f;
+        }
+        else if(roundCount > 2)
+        {
+            //Difficulty
+            spawner1.enemyTakeDamageAmount -= 5f;
+            spawner2.enemyTakeDamageAmount -= 5f;
+            spawner3.enemyTakeDamageAmount -= 5f;
+
+            spawner1.enemySpeedAmount += 0.25f;
+            spawner2.enemySpeedAmount += 0.25f;
+            spawner3.enemySpeedAmount += 0.25f;
+        }
     }
     public void ShowGameOverPanel()
     {
@@ -150,32 +184,32 @@ public class GameController : MonoBehaviour
 
         if (selectedDowngrade.downgradeName == "LeftSpeedReduction")
         {
-            spawner1.enemySpeedAmount *= 2f / 3f;
+            spawner1.enemySpeedAmount -=0.5f;
             Debug.Log("soldan hız kesildi");
         }
         else if (selectedDowngrade.downgradeName == "MiddleSpeedReduction")
         {
-            spawner2.enemySpeedAmount *= 2f / 3f;
+            spawner2.enemySpeedAmount -= 0.5f;
             Debug.Log("ortadan hız kesildi");
         }
         else if (selectedDowngrade.downgradeName == "RightSpeedReduction")
         {
-            spawner3.enemySpeedAmount *= 2f / 3f;
+            spawner3.enemySpeedAmount -= 0.5f;
             Debug.Log("sağdan hız kesildi");
         }
         else if (selectedDowngrade.downgradeName == "LeftWeakness")
         {
-            spawner1.enemyTakeDamageAmount *= 1.25f;
+            spawner1.enemyTakeDamageAmount += 10f;
             Debug.Log("soldakiler zayıfladı");
         }
         else if (selectedDowngrade.downgradeName == "MiddleWeakness")
         {
-            spawner2.enemyTakeDamageAmount *= 1.25f;
+            spawner2.enemyTakeDamageAmount += 10f;
             Debug.Log("ortadakiler zayıfladı");
         }
         else if (selectedDowngrade.downgradeName == "RightWeakness")
         {
-            spawner3.enemyTakeDamageAmount *= 1.25f;
+            spawner3.enemyTakeDamageAmount += 10f;
             Debug.Log("sağdakiler zayıfladı");
         }
 

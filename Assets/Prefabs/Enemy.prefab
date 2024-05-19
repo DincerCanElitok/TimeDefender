@@ -165,8 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774232398b11de64bb2e38b8897b90b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 100
   healthBarSlider: {fileID: 101529891791115672}
+  takeDamageAmount: 0
+  speed: 0
+  controller: {fileID: 0}
 --- !u!50 &6124710495287454015
 Rigidbody2D:
   serializedVersion: 4
