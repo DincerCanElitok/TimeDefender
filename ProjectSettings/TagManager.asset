@@ -9,6 +9,7 @@ TagManager:
   - Room
   - Death
   - Agent
+  - Return
   layers:
   - Default
   - TransparentFX

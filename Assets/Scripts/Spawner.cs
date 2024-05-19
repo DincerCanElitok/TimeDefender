@@ -12,6 +12,10 @@ public class Spawner : MonoBehaviour
 
     public float randomizePosOnX;
 
+    public float enemyTakeDamageAmount;
+    public float enemySpeedAmount;
+
+    public GameController controller;
     private void Start()
     {
         spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
@@ -29,7 +33,10 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, transform.position + new Vector3(Random.Range(-randomizePosOnX,randomizePosOnX),0,0),
+        var enemy = Instantiate(enemyPrefab, transform.position + new Vector3(Random.Range(-randomizePosOnX,randomizePosOnX),0,0),
             transform.rotation);
+        enemy.GetComponent<Enemy>().takeDamageAmount = enemyTakeDamageAmount;
+        enemy.GetComponent<Enemy>().speed = enemySpeedAmount;
+        enemy.GetComponent<Enemy>().controller = controller;
     }
 }

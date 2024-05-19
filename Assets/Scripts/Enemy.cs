@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float health;
     public Slider healthBarSlider;
-
+    public float takeDamageAmount;
+    public float speed;
+    public GameController controller;
     private void Start()
     {
         healthBarSlider.value = health;
@@ -18,7 +20,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         //testing
-        transform.position +=  new Vector3(0, Time.deltaTime,0);
+        transform.position +=  new Vector3(0, speed * Time.deltaTime,0);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,7 +33,13 @@ public class Enemy : MonoBehaviour
         }
         //can be pooled
         if (collision.CompareTag("Death"))
+        {
+            controller.currentTime += 10f;
             Destroy(gameObject);
+        }
+            
+        if (collision.CompareTag("Return"))
+            speed = -speed;
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -48,7 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Agent"))
         {
-            TakeDamage(10f);            
+            TakeDamage(takeDamageAmount);            
         }
     }
     private void TakeDamage(float amount)
@@ -56,7 +64,8 @@ public class Enemy : MonoBehaviour
         health -= amount;
         healthBarSlider.value = health;
         //for testing, can be pooled
-        if (health < 0)
+        if (health <= 0)
             Destroy(gameObject);
     }
+    
 }
