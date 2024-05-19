@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class GameController : MonoBehaviour
     public float currentTime;
     private bool isTimeStopped;
 
-
+    [SerializeField] private GameObject upgradePanel;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TextMeshProUGUI roundText;
+    [SerializeField] private TextMeshProUGUI roundTextGameOver;
+    private int roundCount = 0;
     private void Start()
     {
         currentTime = timeForNextUpdate;
@@ -39,13 +44,15 @@ public class GameController : MonoBehaviour
         //show upgrade panel
         if (currentTime < 0.1f && !isTimeStopped)
         {
-            ChangeTime();      
+            ChangeTime();
+            ShowUpgradePanel();
         }
 
         //show gameover panel
         if(currentTime > timeForGameOver)
         {
             ChangeTime();
+            ShowGameOverPanel();
         }
             
     }
@@ -62,6 +69,21 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0f;
             isTimeStopped = true;
         }           
+    }
+    public void ShowUpgradePanel()
+    {
+        roundCount += 1;
+        roundText.text = "Round :  " + roundCount.ToString();
+        upgradePanel.SetActive(true);
+    }
+    public void ShowGameOverPanel()
+    {
+        roundTextGameOver.text = "Reached Round :  " + roundCount.ToString();
+        gameOverPanel.SetActive(true);
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
