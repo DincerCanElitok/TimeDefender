@@ -1,8 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -23,10 +24,32 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI roundText;
     [SerializeField] private TextMeshProUGUI roundTextGameOver;
     private int roundCount = 0;
+
+    public List<Downgrade> downgrades = new List<Downgrade>();
+    public List<Downgrade> currentDowngrades = new List<Downgrade>();
+    [SerializeField] private TextMeshProUGUI downgradeNameText1;
+    [SerializeField] private TextMeshProUGUI downgradeDescriptionText1;
+    [SerializeField] private Image downgradeImage1;
+    [SerializeField] private Button downgradeButton1;
+
+    [SerializeField] private TextMeshProUGUI downgradeNameText2;
+    [SerializeField] private TextMeshProUGUI downgradeDescriptionText2;
+    [SerializeField] private Image downgradeImage2;
+    [SerializeField] private Button downgradeButton2;
+
+    [SerializeField] private TextMeshProUGUI downgradeNameText3;
+    [SerializeField] private TextMeshProUGUI downgradeDescriptionText3;
+    [SerializeField] private Image downgradeImage3;
+    [SerializeField] private Button downgradeButton3;
     private void Start()
     {
         currentTime = timeForNextUpdate;
         isTimeStopped = false;
+
+        downgradeButton1.onClick.AddListener(() => ApplyDowngrade(0));
+        downgradeButton2.onClick.AddListener(() => ApplyDowngrade(1));
+        downgradeButton3.onClick.AddListener(() => ApplyDowngrade(2));
+
     }
     private void Update()
     {
@@ -74,6 +97,7 @@ public class GameController : MonoBehaviour
     {
         roundCount += 1;
         roundText.text = "Round :  " + roundCount.ToString();
+        ShowRandomDowngrades();
         upgradePanel.SetActive(true);
     }
     public void ShowGameOverPanel()
@@ -84,6 +108,80 @@ public class GameController : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void ShowRandomDowngrades()
+    {
+        currentDowngrades.Clear();
+        for (int i = 0; i < 3; i++)
+        {
+            int random;
+            do
+            {
+                random = Random.Range(0, downgrades.Count);
+            } while (currentDowngrades.Contains(downgrades[random]));
+
+            currentDowngrades.Add(downgrades[random]);
+        }
+        downgradeNameText1.text = currentDowngrades[0].downgradeName;
+        downgradeDescriptionText1.text = currentDowngrades[0].description;
+        if(currentDowngrades[0].image != null)
+            downgradeImage1 = currentDowngrades[0].image;
+
+        downgradeNameText2.text = currentDowngrades[1].downgradeName;
+        downgradeDescriptionText2.text = currentDowngrades[1].description;
+        if (currentDowngrades[1].image != null)
+            downgradeImage2 = currentDowngrades[1].image;
+
+        downgradeNameText3.text = currentDowngrades[2].downgradeName;
+        downgradeDescriptionText3.text = currentDowngrades[2].description;
+        if (currentDowngrades[2].image != null)
+            downgradeImage3 = currentDowngrades[2].image;
+    }
+    public void ApplyDowngrade(int index)
+    {
+        Downgrade selectedDowngrade = currentDowngrades[index];
+        Debug.Log("Seçilen azaltma " + selectedDowngrade.downgradeName);
+
+        if (selectedDowngrade.downgradeName == "LeftSpeedReduction")
+        {
+            spawner1.enemySpeedAmount *= 2f / 3f;
+            Debug.Log("soldan hız kesildi");
+        }
+        else if (selectedDowngrade.downgradeName == "MiddleSpeedReduction")
+        {
+            spawner2.enemySpeedAmount *= 2f / 3f;
+            Debug.Log("ortadan hız kesildi");
+        }
+        else if (selectedDowngrade.downgradeName == "RightSpeedReduction")
+        {
+            spawner3.enemySpeedAmount *= 2f / 3f;
+            Debug.Log("sağdan hız kesildi");
+        }
+        else if (selectedDowngrade.downgradeName == "LeftWeakness")
+        {
+            spawner1.enemyTakeDamageAmount *= 1.25f;
+            Debug.Log("soldakiler zayıfladı");
+        }
+        else if (selectedDowngrade.downgradeName == "MiddleWeakness")
+        {
+            spawner2.enemyTakeDamageAmount *= 1.25f;
+            Debug.Log("ortadakiler zayıfladı");
+        }
+        else if (selectedDowngrade.downgradeName == "RightWeakness")
+        {
+            spawner3.enemyTakeDamageAmount *= 1.25f;
+            Debug.Log("sağdakiler zayıfladı");
+        }
+
+        upgradePanel.SetActive(false);
+        ChangeTime();
+    }
+    [System.Serializable]
+    public class Downgrade
+    {
+        public string downgradeName;
+        public string description;
+        public Image image;
     }
 
 }
