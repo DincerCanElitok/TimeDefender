@@ -1292,8 +1292,6 @@ MonoBehaviour:
   musicSounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 44977e674ec205f4487e51397a72ccbe, type: 3}
-  - name: Over
-    clip: {fileID: 8300000, guid: 844c45d118bf33f40a9988b6f9125a9c, type: 3}
   sfxSounds:
   - name: Over
     clip: {fileID: 8300000, guid: 844c45d118bf33f40a9988b6f9125a9c, type: 3}

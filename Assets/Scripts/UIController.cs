@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private RectTransform goBtn;
     [SerializeField] private RectTransform soundOnBtn;
     [SerializeField] private RectTransform soundOffBtn;
-    bool isPauseControl = false;
+    //bool isPauseControl = false;
     public void PuaseButton()
     {
         goBtn.gameObject.SetActive(true);
@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
         goBtn.DOScale(Vector3.one, 0.2f).OnComplete(() =>
         {
             Time.timeScale = 0f;
-            isPauseControl = true;
+            //isPauseControl = true;
 
             soundOffBtn.GetComponent<Button>().interactable = false;
             soundOnBtn.GetComponent<Button>().interactable = false;
@@ -52,7 +52,7 @@ public class UIController : MonoBehaviour
         });
         soundOffBtn.DOScale(Vector3.one, 0.2f).OnComplete(() =>
         {
-            //Sesi Kapat
+            AudioManager.instance.musicSource.volume = 0.05f;
 
         });
     }
@@ -65,7 +65,7 @@ public class UIController : MonoBehaviour
         });
         soundOnBtn.DOScale(Vector3.one, 0.2f).OnComplete(() =>
         {
-            //Sesi Aç
+            AudioManager.instance.musicSource.volume = 0f;
 
         });
     }
