@@ -29,18 +29,19 @@ public class GameController : MonoBehaviour
     public List<Downgrade> currentDowngrades = new List<Downgrade>();
     [SerializeField] private TextMeshProUGUI downgradeNameText1;
     [SerializeField] private TextMeshProUGUI downgradeDescriptionText1;
-    [SerializeField] private Image downgradeImage1;
+    [SerializeField] private GameObject downgradeImage1;
     [SerializeField] private Button downgradeButton1;
 
     [SerializeField] private TextMeshProUGUI downgradeNameText2;
     [SerializeField] private TextMeshProUGUI downgradeDescriptionText2;
-    [SerializeField] private Image downgradeImage2;
+    [SerializeField] private GameObject downgradeImage2;
     [SerializeField] private Button downgradeButton2;
 
     [SerializeField] private TextMeshProUGUI downgradeNameText3;
     [SerializeField] private TextMeshProUGUI downgradeDescriptionText3;
-    [SerializeField] private Image downgradeImage3;
+    [SerializeField] private GameObject downgradeImage3;
     [SerializeField] private Button downgradeButton3;
+
     private void Start()
     {
         currentTime = timeForNextUpdate;
@@ -50,6 +51,7 @@ public class GameController : MonoBehaviour
         downgradeButton2.onClick.AddListener(() => ApplyDowngrade(1));
         downgradeButton3.onClick.AddListener(() => ApplyDowngrade(2));
 
+        
     }
     private void Update()
     {
@@ -125,17 +127,17 @@ public class GameController : MonoBehaviour
         downgradeNameText1.text = currentDowngrades[0].downgradeName;
         downgradeDescriptionText1.text = currentDowngrades[0].description;
         if(currentDowngrades[0].image != null)
-            downgradeImage1 = currentDowngrades[0].image;
+            downgradeImage1.GetComponent<Image>().sprite = currentDowngrades[0].image;
 
         downgradeNameText2.text = currentDowngrades[1].downgradeName;
         downgradeDescriptionText2.text = currentDowngrades[1].description;
         if (currentDowngrades[1].image != null)
-            downgradeImage2 = currentDowngrades[1].image;
+            downgradeImage2.GetComponent<Image>().sprite = currentDowngrades[1].image;
 
         downgradeNameText3.text = currentDowngrades[2].downgradeName;
         downgradeDescriptionText3.text = currentDowngrades[2].description;
         if (currentDowngrades[2].image != null)
-            downgradeImage3 = currentDowngrades[2].image;
+            downgradeImage3.GetComponent<Image>().sprite = currentDowngrades[2].image;
     }
     public void ApplyDowngrade(int index)
     {
@@ -181,7 +183,7 @@ public class GameController : MonoBehaviour
     {
         public string downgradeName;
         public string description;
-        public Image image;
+        public Sprite image;
     }
 
 }

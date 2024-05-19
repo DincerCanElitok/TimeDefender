@@ -754,7 +754,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 633857915}
-  - component: {fileID: 633857914}
   - component: {fileID: 633857916}
   m_Layer: 0
   m_Name: MenuManager
@@ -763,23 +762,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &633857914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633857913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1170a8dca9ceb439374dc5e3bff0ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameName: {fileID: 0}
-  buttonsPanel: {fileID: 0}
-  infoPanel: {fileID: 0}
-  startBtn: {fileID: 0}
-  infoBtn: {fileID: 0}
 --- !u!4 &633857915
 Transform:
   m_ObjectHideFlags: 0
