@@ -13,13 +13,53 @@ public class DefenderAgent : Agent
     [SerializeField] private GameObject enemy;
     private Vector3 startPos;
     [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
-    
+    private SpriteRenderer spriteRendererInChildren;
+    private Transform spriteTransform;
+    private Vector3 previousPos;
+    private Vector3 currentPos;
+    private Vector3 movement;
+    private bool isFlipped = false;
     private void Start()
     {
         startPos = transform.localPosition;
         room = GetComponentInParent<Room>();
         room.informAgentSetEnemy += SetEnemy;
         room.informAgentLeaveEnemy += LeaveEnemy;
+        previousPos = startPos;
+        spriteRendererInChildren = GetComponentInChildren<SpriteRenderer>();
+        spriteTransform = spriteRendererInChildren.transform;
+
+    }
+    private void Update()
+    {
+        
+        FlipChildSpriteOnMovement();
+
+    }
+    //ai using transform for movement
+    private void FlipChildSpriteOnMovement()
+    {
+        currentPos = transform.localPosition;
+        movement = currentPos - previousPos;
+        if (movement.x > 0 && isFlipped)
+        {
+            FlipChildSprite(false);
+        }
+        else if (movement.x < 0 && !isFlipped)
+        {
+            FlipChildSprite(true);
+        }
+    }
+    //also pivot point of assets is not in the center
+    //so I need to adjust the position  of sprite renderer
+    private void FlipChildSprite(bool flip)
+    {
+        spriteRendererInChildren.flipX = flip;
+        isFlipped = flip;
+
+        Vector3 newChildPos = spriteTransform.localPosition;
+        newChildPos.x *= -1;
+        spriteTransform.localPosition = newChildPos;
     }
     private void SetEnemy(GameObject enemy)
     {
@@ -95,7 +135,7 @@ public class DefenderAgent : Agent
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //for if agent and enemy spawn in same pos
+        //for if agent and enemy spawn in same pos in training
         if (collision.gameObject.CompareTag("Enemy"))
         {
             AddReward(10f);

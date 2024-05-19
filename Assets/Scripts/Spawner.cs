@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public List<GameObject> enemyPrefabs;
     public float spawnTimeMax;
     public float spawnTimeMin;
     public float spawnTime;
@@ -33,10 +33,14 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        var enemy = Instantiate(enemyPrefab, transform.position + new Vector3(Random.Range(-randomizePosOnX,randomizePosOnX),0,0),
+        int random = Random.Range(0, enemyPrefabs.Count);
+        var enemy = Instantiate(enemyPrefabs[random], transform.position + new Vector3(Random.Range(-randomizePosOnX,randomizePosOnX),0,0),
             transform.rotation);
         enemy.GetComponent<Enemy>().takeDamageAmount = enemyTakeDamageAmount;
         enemy.GetComponent<Enemy>().speed = enemySpeedAmount;
         enemy.GetComponent<Enemy>().controller = controller;
+
+        //pivot point of char assets is not in the center
+        //enemy.GetComponentInChildren<SpriteRenderer>().flipX = Random.Range(0,2) == 0;
     }
 }

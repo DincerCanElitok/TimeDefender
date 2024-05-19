@@ -1195,7 +1195,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d37367f36603f84eb9d323eb1d92eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6124710495287454002, guid: 813577200cf30f4498cb8816984687fe, type: 3}
+  enemyPrefabs:
+  - {fileID: 6124710495287454002, guid: ea3c5d98b44ff1345a0990e0af779d2d, type: 3}
+  - {fileID: 6124710495287454002, guid: 6b76f3a21d4253149968d9bfa0348bdf, type: 3}
+  - {fileID: 6124710495287454002, guid: 4485d77cf5ff9824cb2c6b1d99df80ce, type: 3}
+  - {fileID: 6124710495287454002, guid: c9a3738d79015554ba53e9762c04fa73, type: 3}
+  - {fileID: 6124710495287454002, guid: 9872c7f317d6c70479aefa363fe04149, type: 3}
+  - {fileID: 6124710495287454002, guid: 88ce757618b74fe45b9429db93bad115, type: 3}
   spawnTimeMax: 7
   spawnTimeMin: 3
   spawnTime: 0
@@ -1803,7 +1809,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Enemies get tougher and faster each round.)
+  m_text: (Enemies become tougher and faster each round. If the time reaches 120
+    the game is over)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -4443,7 +4450,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d37367f36603f84eb9d323eb1d92eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6124710495287454002, guid: 813577200cf30f4498cb8816984687fe, type: 3}
+  enemyPrefabs:
+  - {fileID: 6124710495287454002, guid: ea3c5d98b44ff1345a0990e0af779d2d, type: 3}
+  - {fileID: 6124710495287454002, guid: 6b76f3a21d4253149968d9bfa0348bdf, type: 3}
+  - {fileID: 6124710495287454002, guid: 4485d77cf5ff9824cb2c6b1d99df80ce, type: 3}
+  - {fileID: 6124710495287454002, guid: c9a3738d79015554ba53e9762c04fa73, type: 3}
+  - {fileID: 6124710495287454002, guid: 9872c7f317d6c70479aefa363fe04149, type: 3}
+  - {fileID: 6124710495287454002, guid: 88ce757618b74fe45b9429db93bad115, type: 3}
   spawnTimeMax: 7
   spawnTimeMin: 3
   spawnTime: 0
@@ -5357,10 +5370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -17859,7 +17872,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d37367f36603f84eb9d323eb1d92eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6124710495287454002, guid: 813577200cf30f4498cb8816984687fe, type: 3}
+  enemyPrefabs:
+  - {fileID: 6124710495287454002, guid: ea3c5d98b44ff1345a0990e0af779d2d, type: 3}
+  - {fileID: 6124710495287454002, guid: 6b76f3a21d4253149968d9bfa0348bdf, type: 3}
+  - {fileID: 6124710495287454002, guid: 4485d77cf5ff9824cb2c6b1d99df80ce, type: 3}
+  - {fileID: 6124710495287454002, guid: c9a3738d79015554ba53e9762c04fa73, type: 3}
+  - {fileID: 6124710495287454002, guid: 9872c7f317d6c70479aefa363fe04149, type: 3}
+  - {fileID: 6124710495287454002, guid: 88ce757618b74fe45b9429db93bad115, type: 3}
   spawnTimeMax: 7
   spawnTimeMin: 3
   spawnTime: 0
