@@ -104,11 +104,15 @@ public class GameController : MonoBehaviour
     }
     public void ShowGameOverPanel()
     {
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlaySFX("Over");
         roundTextGameOver.text = "Reached Round :  " + roundCount.ToString();
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
     public void LoadMainMenu()
     {
+        AudioManager.instance.PlayMusic("Theme");
         SceneManager.LoadScene(0);
     }
     public void ShowRandomDowngrades()

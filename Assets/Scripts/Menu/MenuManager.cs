@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         gameName.DOAnchorPosY(-13, 1f).OnComplete(() =>
         {
             charPanel.gameObject.SetActive(true);
