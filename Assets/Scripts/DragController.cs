@@ -47,7 +47,7 @@ public class DragController : MonoBehaviour
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray, maxRaycastDistance, draggableLayer);
         if (hit.collider != null && hit.transform.CompareTag("Agent"))
         {
-            Debug.Log("Agent selected");
+            //Debug.Log("Agent selected");
             selectedObject = hit.transform.gameObject;
             originalPosition = selectedObject.transform.position;
             originalRoom = selectedObject.transform.parent.gameObject;

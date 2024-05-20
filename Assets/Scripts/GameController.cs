@@ -124,9 +124,9 @@ public class GameController : MonoBehaviour
             spawner3.spawnTimeMax = 7f;
             spawner3.spawnTimeMin = 3f;
         }
-        else if(roundCount > 2)
-        {
-            //Difficulty
+        //Difficulty
+        else if (roundCount > 2 && roundCount < 5)
+        {        
             spawner1.enemyTakeDamageAmount -= 5f;
             spawner2.enemyTakeDamageAmount -= 5f;
             spawner3.enemyTakeDamageAmount -= 5f;
@@ -134,6 +134,38 @@ public class GameController : MonoBehaviour
             spawner1.enemySpeedAmount += 0.25f;
             spawner2.enemySpeedAmount += 0.25f;
             spawner3.enemySpeedAmount += 0.25f;
+        }
+        else if (roundCount >= 5 && roundCount < 8)
+        {
+            spawner1.enemyTakeDamageAmount -= 10f;
+            spawner2.enemyTakeDamageAmount -= 10f;
+            spawner3.enemyTakeDamageAmount -= 10f;
+
+            spawner1.enemySpeedAmount += 1f;
+            spawner2.enemySpeedAmount += 1f;
+            spawner3.enemySpeedAmount += 1f;
+
+            if(roundCount == 5)
+            {
+                spawner1.spawnTimeMax = 5f;
+                spawner1.spawnTimeMin = 3f;
+
+                spawner2.spawnTimeMax = 5f;
+                spawner2.spawnTimeMin = 3f;
+
+                spawner3.spawnTimeMax = 5f;
+                spawner3.spawnTimeMin = 3f;
+            }
+        }
+        else if (roundCount >= 8)
+        {
+            spawner1.enemyTakeDamageAmount -= 20f;
+            spawner2.enemyTakeDamageAmount -= 20f;
+            spawner3.enemyTakeDamageAmount -= 20f;
+
+            spawner1.enemySpeedAmount += 1.5f;
+            spawner2.enemySpeedAmount += 1.5f;
+            spawner3.enemySpeedAmount += 1.5f;
         }
     }
     public void ShowGameOverPanel()
@@ -180,37 +212,43 @@ public class GameController : MonoBehaviour
     public void ApplyDowngrade(int index)
     {
         Downgrade selectedDowngrade = currentDowngrades[index];
-        Debug.Log("Seçilen azaltma " + selectedDowngrade.downgradeName);
+        //Debug.Log("Seçilen azaltma " + selectedDowngrade.downgradeName);
 
         if (selectedDowngrade.downgradeName == "LeftSpeedReduction")
         {
             spawner1.enemySpeedAmount -=0.5f;
-            Debug.Log("soldan hız kesildi");
+            //Debug.Log("soldan hız kesildi");    
+            if (spawner1.enemySpeedAmount < 0.5f)
+                spawner1.enemySpeedAmount = 0.25f;
         }
         else if (selectedDowngrade.downgradeName == "MiddleSpeedReduction")
         {
             spawner2.enemySpeedAmount -= 0.5f;
-            Debug.Log("ortadan hız kesildi");
+            //Debug.Log("ortadan hız kesildi");
+            if (spawner2.enemySpeedAmount < 0.5f)
+                spawner2.enemySpeedAmount = 0.25f;
         }
         else if (selectedDowngrade.downgradeName == "RightSpeedReduction")
         {
             spawner3.enemySpeedAmount -= 0.5f;
-            Debug.Log("sağdan hız kesildi");
+            //Debug.Log("sağdan hız kesildi");
+            if (spawner3.enemySpeedAmount < 0.5f)
+                spawner3.enemySpeedAmount = 0.25f;
         }
         else if (selectedDowngrade.downgradeName == "LeftWeakness")
         {
             spawner1.enemyTakeDamageAmount += 10f;
-            Debug.Log("soldakiler zayıfladı");
+            //Debug.Log("soldakiler zayıfladı");
         }
         else if (selectedDowngrade.downgradeName == "MiddleWeakness")
         {
             spawner2.enemyTakeDamageAmount += 10f;
-            Debug.Log("ortadakiler zayıfladı");
+            //Debug.Log("ortadakiler zayıfladı");
         }
         else if (selectedDowngrade.downgradeName == "RightWeakness")
         {
             spawner3.enemyTakeDamageAmount += 10f;
-            Debug.Log("sağdakiler zayıfladı");
+            //Debug.Log("sağdakiler zayıfladı");
         }
 
         upgradePanel.SetActive(false);
