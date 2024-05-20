@@ -16,7 +16,7 @@ Esad Kibar : https://www.linkedin.com/in/esadkibar
 
 Onur Küçük: https://www.linkedin.com/in/onurkck8/
 
-Özgün Öykü Elçitepe : https://www.linkedin.com/in/OzgunOykuElcitepe
+Özgün Öykü Elçitepe : [https://www.linkedin.com/in/OzgunOykuElcitepe](https://www.linkedin.com/in/%C3%B6zg%C3%BCn-%C3%B6yk%C3%BC-el%C3%A7itepe/)
  ### If you wanna train your own ai model!
 
 1. Go to the project folder in terminal or cmd. Make sure your active python version is 3.9.13. Create virtual environment.
