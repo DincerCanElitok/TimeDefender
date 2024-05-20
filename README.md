@@ -1,7 +1,6 @@
 ### Time Defender
 A game jam project based on the theme of time is your power. In short, a defense game using artificial intelligence. You can click on the [itch io](https://xox-games.itch.io/time-defender) link to try it on your browser.  Made in 3 days by using Unity mlagents.  
 ### Welcome, Brave Time Defender!
- Welcome, brave Time Defender!
  In the temple of time, it's up to you to protect the flow of time and save the world from chaos! In this magical universe, as a defender who rules time and space, your mission is to lead the Time Guardians and defend time against the undeads.
  If the undeads succeed in stealing time, they will come back to life and the balance of the universe will be destroyed. The fate of the universe is in your hands. Don't let this discourage you, brave defender! You can start the defense all over again by taking back time.
  Are you ready to become the master of time and save this fantastic world? Adventure awaits you!
