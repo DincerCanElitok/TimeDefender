@@ -61,4 +61,4 @@ mlagents-learn --run-id=test
 
 Of course you need to set up your scene for training and write some code to train your ai model.
 This guide is for installing the python mlagents library. You can check the DefenderAgent script in Asset\Scripts folder to get an idea.
-
+And you can follow these steps for another unity project, just make sure you install the mlagents 2.0.1 package via the package manager in unity.
