@@ -6,7 +6,7 @@ A game jam project based on the theme of time is your power. In short, a defense
  If the undeads succeed in stealing time, they will come back to life and the balance of the universe will be destroyed. The fate of the universe is in your hands. Don't let this discourage you, brave defender! You can start the defense all over again by taking back time.
  Are you ready to become the master of time and save this fantastic world? Adventure awaits you!
 
- ###Contributors; 
+ ###Contributors
 
 Ayşenur Çavuş : https://www.linkedin.com/in/aysenurcavus24/
 
