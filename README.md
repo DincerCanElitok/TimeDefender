@@ -5,17 +5,7 @@ A game jam project based on the theme of time is your power. In short, a defense
  If the undeads succeed in stealing time, they will come back to life and the balance of the universe will be destroyed. The fate of the universe is in your hands. Don't let this discourage you, brave defender! You can start the defense all over again by taking back time.
  Are you ready to become the master of time and save this fantastic world? Adventure awaits you!
 
-### Contributors
 
-Ayşenur Çavuş : https://www.linkedin.com/in/aysenurcavus24/
-
-Dinçer Can Elitok : https://www.linkedin.com/in/dincer-can-elitok/
-
-Esad Kibar : https://www.linkedin.com/in/esadkibar
-
-Onur Küçük: https://www.linkedin.com/in/onurkck8/
-
-Özgün Öykü Elçitepe : [https://www.linkedin.com/in/OzgunOykuElcitepe](https://www.linkedin.com/in/%C3%B6zg%C3%BCn-%C3%B6yk%C3%BC-el%C3%A7itepe/)
  ### If you wanna train your own ai model!
 
 1. Go to the project folder in terminal or cmd. Make sure your active python version is 3.9.13. Create virtual environment.
